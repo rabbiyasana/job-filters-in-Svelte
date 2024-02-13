@@ -16,125 +16,67 @@
 	<div class="container-fluid">
 		<div class="container">
 			<div class="row">
-				<nav>
-					<svg viewBox="0 0 2 3" aria-hidden="true">
-						<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-					</svg>
-					<ul>
-						<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-							<a href="/"><h1>Jobster</h1></a>
-						</li>
-						<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-							<a href="/">Home</a>
-						</li>
-						<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
-							<a href="/about">About</a>
-						</li>
-						<li aria-current={$page.url.pathname === '/findJob' ? 'page' : undefined}>
-							<a href="/findJob">FindJob</a>
-						</li>
-					</ul>
-					<svg viewBox="0 0 2 3" aria-hidden="true">
-						<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-					</svg>
+				<nav class="navbar navbar-expand-lg">
+					<div class="container-fluid">
+						<a class="navbar-brand" href="/"> </a>
+						<button
+							class="navbar-toggler"
+							type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#navbarNavDropdown"
+							aria-controls="navbarNavDropdown"
+							aria-expanded="false"
+							aria-label="Toggle navigation"
+						>
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarNavDropdown">
+							<ul class="navbar-nav">
+								<li class="nav-item" aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
+									<a class="nav-link" href="/"><span class="logo-head">Jobster</span></a>
+								</li>
+
+								<li class="nav-item" aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
+									<a class="nav-link" href="/">Home</a>
+								</li>
+								<li
+									class="nav-item"
+									aria-current={$page.url.pathname === '/about' ? 'page' : undefined}
+								>
+									<a class="nav-link" href="/about">About</a>
+								</li>
+								<li
+									class="nav-item"
+									aria-current={$page.url.pathname === '/findJob' ? 'page' : undefined}
+								>
+									<a class="nav-link" href="/findJob">FindJob</a>
+								</li>
+							</ul>
+						</div>
+					</div>
 				</nav>
 			</div>
 		</div>
 	</div>
-
-	<div class="corner">
-		<a href="https://github.com/sveltejs/kit">
-			<img src={github} alt="GitHub" />
-		</a>
-	</div>
 </header>
 
 <style>
-	header {
-		display: flex;
-		justify-content: space-between;
+	.container-fluid {
+		background-color: #ffffff !important;
 	}
-
-	.corner {
-		width: 3em;
-		height: 3em;
+	.logo-head {
+		font-size: 30px;
 	}
-
-	.corner a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-	}
-
-	.corner img {
-		width: 2em;
-		height: 2em;
-		object-fit: contain;
-	}
-
-	nav {
-		display: flex;
-		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
-	}
-
-	svg {
-		width: 2em;
-		height: 3em;
-		display: block;
-	}
-
-	path {
-		fill: var(--background);
-	}
-
-	ul {
-		position: relative;
-		padding: 0;
-		margin: 0;
-		height: 3em;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		list-style: none;
-		background: var(--background);
-		background-size: contain;
-	}
-
-	li {
-		position: relative;
-		height: 100%;
-	}
-
-	li[aria-current='page']::before {
-		--size: 6px;
-		content: '';
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--color-theme-1);
-	}
-
 	nav a {
 		display: flex;
 		height: 100%;
 		align-items: center;
-		padding: 0 0.5rem;
-		color: var(--color-text);
+		padding: 30 0.5px;
 		font-weight: 700;
 		font-size: 0.8rem;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		text-decoration: none;
 		transition: color 0.2s linear;
-	}
-
-	a:hover {
-		color: var(--color-theme-1);
 	}
 </style>

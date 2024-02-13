@@ -1,5 +1,4 @@
 <script>
-	import Counter from './Counter.svelte';
 	// import welcome from '$lib/images/svelte-welcome.webp';
 	// import welcome_fallback from '$lib/images/svelte-welcome.png';
 </script>
@@ -10,5 +9,5 @@
 </svelte:head>
 
 <section>
-	<p>thisis home page</p>
+	<p>this is home page</p>
 </section>
