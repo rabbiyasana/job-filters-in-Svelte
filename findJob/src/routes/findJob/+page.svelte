@@ -2,7 +2,7 @@
 	// Adjust based on your router
 	import { onMount } from 'svelte';
 	import { jobDataStore } from '../../store';
-
+	import { expLevel } from '../../store';
 	async function fetchJobData() {
 		try {
 			const response = await fetch('http://51.20.72.242/api/v1/jobs/employment-types/');
@@ -17,9 +17,23 @@
 			console.error('Error fetching job data:', error);
 		}
 	}
+	async function fetchexpLevel() {
+		try {
+			const response = await fetch('http://51.20.72.242/api/v1/jobs/career-levels/');
+			if (response.ok) {
+				const jsonData = await response.json(); // Use a temporary variable for clarity
+				expLevel.set(jsonData.data); // Update the reactive variable
+			} else {
+				console.error('Failed to fetch job data:', response.statusText);
+			}
+		} catch (error) {
+			console.error('Error fetching job data:', error);
+		}
+	}
 
 	// Call fetchJobData when component mounts
 	onMount(fetchJobData);
+	onMount(fetchexpLevel);
 </script>
 
 <svelte:head>
@@ -65,7 +79,7 @@
 <section class="mt-5">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-5 col-xl-4 col-xxl-3">
+			<div class="col-lg-5 col-xl-4 col-xxl-4">
 				<div class="pxp-jobs-list-side-filter">
 					<div class="pxp-list-side-filter-header d-flex d-lg-none">
 						<div class="pxp-list-side-filter-header-label">Filter Jobs</div>
@@ -74,7 +88,9 @@
 						</button>
 					</div>
 					<div class="mt-4 mt-lg-0 d-lg-block pxp-list-side-filter-panel head-bg px-2 border py-4">
-						<h3>Type of Employment</h3>
+						<div class="list-group mt-2 mt-lg-3">
+							<h4 class="ml-3">Type of Employment</h4>
+						</div>
 						<div class="list-group mt-2 mt-lg-3">
 							{#each $jobDataStore as Jobtype}
 								<div class="d-flex p-2 justify-content-between">
@@ -86,12 +102,26 @@
 								</div>
 							{/each}
 						</div>
+						<div class="list-group mt-2 mt-lg-3">
+							<h4>Experience Level</h4>
+						</div>
+						<div class="list-group mt-2 mt-lg-3">
+							{#each $expLevel as experience}
+								<div class="d-flex p-2 justify-content-between">
+									<span>
+										<input class="form-check-input me-2" type="checkbox" />
+										{experience.value}
+									</span>
+									<span class="badge rounded-pill bg-light text-dark">0{experience.count} </span>
+								</div>
+							{/each}
+						</div>
 					</div>
 				</div>
 			</div>
 
 			<!-- The job listing part -->
-			<div class="col-lg-7 col-xl-8 col-xxl-9">
+			<div class="col-lg-7 col-xl-8 col-xxl-8">
 				<!-- Jobs list top -->
 				<!-- Job cards -->
 				<!-- {#each jobData as job} -->
@@ -135,5 +165,8 @@
 	}
 	.border {
 		border-radius: 30px;
+	}
+	h4 {
+		margin-left: 10px;
 	}
 </style>
