@@ -18,7 +18,9 @@
 			<div class="row">
 				<nav class="navbar navbar-expand-lg">
 					<div class="container-fluid">
-						<a class="navbar-brand" href="/"> </a>
+						<a class="navbar-brand logo-head" href="/"
+							><strong><strong style="color: #0F4376;">J</strong>obster</strong>
+						</a>
 						<button
 							class="navbar-toggler"
 							type="button"
@@ -32,10 +34,6 @@
 						</button>
 						<div class="collapse navbar-collapse" id="navbarNavDropdown">
 							<ul class="navbar-nav">
-								<li class="nav-item" aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-									<a class="nav-link" href="/"><span class="logo-head">Jobster</span></a>
-								</li>
-
 								<li class="nav-item" aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
 									<a class="nav-link" href="/">Home</a>
 								</li>

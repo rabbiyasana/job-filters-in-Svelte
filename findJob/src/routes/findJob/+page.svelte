@@ -4,6 +4,8 @@
 	import { jobDataStore } from '../../store';
 	import { expLevel } from '../../store';
 	import { jobs } from '../../store';
+	import { salaryRange } from '../../store';
+
 	import image from '../../lib/images/jobs.png';
 	async function fetchJobData() {
 		try {
@@ -81,9 +83,14 @@
 						<i class="fa fa-folder"></i>
 						<select class="form-select select-width">
 							<option selected>All Categorye</option>
-							<option value="1">Option 1</option>
-							<option value="2">Option 2</option>
-							<option value="3">Option 3</option>
+							{#each $jobs as job}
+								{#if job.categories && job.categories.length > 0}
+									{#each job.categories.slice(0, 6) as category, index (category.id)}
+										<div>{category.name}</div>
+										<option value="1">{category.name}</option>
+									{/each}
+								{/if}
+							{/each}
 						</select>
 					</div>
 					<!-- Submit Button -->
@@ -132,6 +139,25 @@
 										{experience.value}
 									</span>
 									<span class="badge rounded-pill bg-light text-dark">0{experience.count} </span>
+								</div>
+							{/each}
+						</div>
+						<div class="list-group mt-2 mt-lg-3">
+							<h4>Salary Range</h4>
+						</div>
+						<div class="list-group mt-2 mt-lg-3">
+							{#each $salaryRange as salary}
+								<div class="d-flex p-2 justify-content-between">
+									<label class="form-check-label" for={`salary-${salary}`}>
+										<input
+											class="form-check-input me-2"
+											type="radio"
+											name="salary"
+											id={`salary-${salary}`}
+											value={salary}
+										/>
+										{salary}
+									</label>
 								</div>
 							{/each}
 						</div>
