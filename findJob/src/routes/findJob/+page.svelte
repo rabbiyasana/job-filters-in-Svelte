@@ -54,6 +54,7 @@
 <svelte:head>
 	<title>find Job</title>
 	<meta name="description" content="find Job " />
+	<link href="./../node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
 </svelte:head>
 
 <div class="continer-fluid head-bg py-5">
@@ -65,16 +66,19 @@
 			<form>
 				<div class="row align-items-center gx-0">
 					<!-- First Search Bar -->
-					<div class="col line">
+					<div class="col line m-1 d-flex align-items-center">
+						<i class="fa fa-search"></i>
 						<input type="text" class="form-control" placeholder="jobtitle or keyword" />
 					</div>
 					<!-- Second Search Bar -->
-					<div class="col line">
+					<div class="col line m-1 d-flex align-items-center">
+						<i class="fa fa-globe"></i>
 						<input type="text" class="form-control" placeholder="Location " />
 					</div>
 
 					<!-- Dropdown -->
-					<div class="col">
+					<div class="col d-flex align-items-center">
+						<i class="fa fa-folder"></i>
 						<select class="form-select select-width">
 							<option selected>All Categorye</option>
 							<option value="1">Option 1</option>
@@ -160,8 +164,6 @@
 						<div class="row align-items-center justify-content-between">
 							<div class="col-sm-3 col-md-2 col-lg-3 col-xl-2 col-xxl-auto">
 								<a class="pxp-jobs-card-3-company-logo compLogoOne" href="a">
-									<!-- The style can be set directly in the class or inline using `style` attribute -->
-									<!-- style="background-image: url(images/company-logo-1.png);" -->
 									<img class="img" src={image} alt="" />
 								</a>
 							</div>
