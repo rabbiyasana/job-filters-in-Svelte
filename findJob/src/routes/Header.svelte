@@ -11,8 +11,8 @@ function toggleNavbar() {
 
 <header>
 	<div class="w-full mx-auto bg-white">
-	  <nav class="container mx-auto flex flex-wrap items-center justify-between py-3">
-		<a class="font-bold ml-5 text-blue-800 text-3xl" href="/">Jobster</a>
+	  <nav class="container w-80vw mx-auto flex flex-wrap items-start justify-start py-3">
+		<a class="font-semibold ml-5  text-3xl" href="/"><strong class="text-blue-800">J</strong>obster</a>
 		<button
 		  class="navbar-toggler lg:hidden px-2 py-1 text-xl"
 		  type="button"
@@ -24,7 +24,7 @@ function toggleNavbar() {
 			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
 		  </svg>
 		</button>
-		<div class={`lg:flex ${isNavbarOpen ? 'flex' : 'hidden'} bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700`} id="dropdown">
+		<div class={`lg:flex ${isNavbarOpen ? 'flex' : 'hidden'}  divide-y divide-gray-100 rounded-lg `} id="dropdown">
 		  <ul class="flex flex-col lg:flex-row list-none lg:ml-auto" aria-labelledby="dropdownDefaultButton">
 			<li>
 			  <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" href="/">Home</a>

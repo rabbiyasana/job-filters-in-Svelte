@@ -59,29 +59,29 @@
 	<link href="./../node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
 </svelte:head>
 
-<div class="w-full bg-blue-100 p-5 flex justify-center items-center ">
+<div class="w-full bg-blue-100 p-5 flex justify-around items-stretch content-between">
 	<div class="container w-80vw ">
 		<div class="mx-5 px-5">
-			<h1 class="text-3xl font-bold">Search Jobs</h1>
+			<h1 class="text-3xl font-semibold">Search Jobs</h1>
 		</div>
-		<div class="p-5 bg-white rounded-full my-5">
+		<div class="px-5 py-3 bg-white rounded-3xl lg:rounded-full  my-5">
 			<form>
-				<div class="lg:flex justify-between">
+				<div class="lg:flex justify-between items-center">
 					<!-- First Search Bar -->
-					<div class="border-r w-full border-customGray">
+					<div class=" w-full lg:border-r border-Gray">
 						<i class="fa fa-search"></i>
-						<input type="text" class="my-2 focus:outline-none" placeholder="jobtitle or keyword" />
+						<input type="text" class="my-2 mx-2 lg:mx-0 focus:outline-none" placeholder="jobtitle or keyword" />
 					</div>
 					<!-- Second Search Bar -->
-					<div class="border-r w-full ml-1  border-customGray">
+					<div class="w-full lg:border-r border-Gray ml-1">
 						<i class="fa fa-globe"></i>
-						<input type="text" class="my-2 focus:outline-none" placeholder="Location " />
+						<input type="text" class="my-2 mx-2 lg:mx-0 focus:outline-none" placeholder="Location " />
 					</div>
 
 					<!-- Dropdown -->
 					<div class=" w-full ml-1">
 						<i class="fa fa-folder"></i>
-						<select class="my-2 focus:outline-none">
+						<select class="my-2 mx-2 lg:mx-0 focus:outline-none">
 							<option selected>All Categorye</option>
 							{#each $jobs as job}
 								{#if job.categories && job.categories.length > 0}
@@ -94,8 +94,8 @@
 						</select>
 					</div>
 					<!-- Submit Button -->
-					<div class="col-auto">
-						<button type="submit" class="border rounded-full bg-blue-600 text-white px-4 py-2">Search</button>
+					<div class="w-full sm:w-full flex-col flex sm:flex-row justify-end items-end">
+						<button type="submit" class=" w-full  md:w-auto border rounded-full bg-blue-600 text-white px-5 py-4">Find Jobs</button>
 					</div>
 				</div>
 			</form>
