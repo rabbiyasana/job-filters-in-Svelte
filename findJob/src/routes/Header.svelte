@@ -1,80 +1,52 @@
 <script>
 	import { page } from '$app/stores';
-	import logo from '$lib/images/svelte-logo.svg';
-	import github from '$lib/images/github.svg';
 	import { onMount } from 'svelte';
-
-	onMount(() => {
-		if (typeof document !== 'undefined') {
-			import('bootstrap/dist/css/bootstrap.min.css');
-			import('bootstrap/dist/js/bootstrap.bundle.min.js');
-		}
-	});
+	import "../app.css"
+	function toggleNavbar() {
+    const navbarCollapse = document.getElementById('navbarNavDropdown');
+    // @ts-ignore
+    navbarCollapse.classList.toggle('hidden');
+    // @ts-ignore
+    navbarCollapse.classList.toggle('flex');
+  }
 </script>
 
 <header>
-	<div class="container-fluid">
-		<div class="container">
-			<div class="row">
-				<nav class="navbar navbar-expand-lg">
-					<div class="container-fluid">
-						<a class="navbar-brand logo-head" href="/"
-							><strong><strong style="color: #0F4376;">J</strong>obster</strong>
-						</a>
-						<button
-							class="navbar-toggler"
-							type="button"
-							data-bs-toggle="collapse"
-							data-bs-target="#navbarNavDropdown"
-							aria-controls="navbarNavDropdown"
-							aria-expanded="false"
-							aria-label="Toggle navigation"
-						>
-							<span class="navbar-toggler-icon"></span>
-						</button>
-						<div class="collapse navbar-collapse" id="navbarNavDropdown">
-							<ul class="navbar-nav">
+	<div class="w-full mx-auto bg-white">
+				<nav class="container mx-auto my-auto flex flex-wrap items-center justify-start py-3 ">
+						<a class="lg:w-2/12 sm:w-6/12 font-bold ml-5" href="/"
+							><strong class="text-blue-800 text-3xl" >J</strong><strong class=" text-3xl">obster</strong></a>
+						
+						<div class="navbar-collapse hidden lg:block lg:w-6/12" id="navbarNavDropdown">
+							<ul class="lg:flex flex-col lg:flex-row list-none lg:ml-auto">
 								<li class="nav-item" aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-									<a class="nav-link" href="/">Home</a>
+									<a class="nav-link px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-gray-800 hover:opacity-75" href="/">Home</a>
 								</li>
 								<li
 									class="nav-item"
 									aria-current={$page.url.pathname === '/about' ? 'page' : undefined}
 								>
-									<a class="nav-link" href="/about">About</a>
+									<a class="nav-link px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-gray-800 hover:opacity-75" href="/about">About</a>
 								</li>
 								<li
 									class="nav-item"
 									aria-current={$page.url.pathname === '/findJob' ? 'page' : undefined}
 								>
-									<a class="nav-link" href="/findJob">FindJob</a>
+									<a class="nav-link px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-gray-800 hover:opacity-75" href="/findJob">FindJob</a>
 								</li>
 							</ul>
 						</div>
-					</div>
+					    <button
+							class="navbar-toggler block lg:hidden px-2 py-1 lg:w-3/12 sm:w-6/12 "
+							type="button"
+							on:click={toggleNavbar}
+						>
+						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+						</button>
 				</nav>
-			</div>
-		</div>
 	</div>
 </header>
 
 <style>
-	.container-fluid {
-		background-color: #ffffff !important;
-	}
-	.logo-head {
-		font-size: 30px;
-	}
-	nav a {
-		display: flex;
-		height: 100%;
-		align-items: center;
-		padding: 30 0.5px;
-		font-weight: 700;
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		text-decoration: none;
-		transition: color 0.2s linear;
-	}
+
 </style>
