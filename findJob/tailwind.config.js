@@ -5,7 +5,7 @@ export default {
     extend: {
       colors: {
         customGray: '#8F8F91',
-        backColor: rgb(230, 240, 249),
+        
       },
       width: {
         '80vw': '80vw',

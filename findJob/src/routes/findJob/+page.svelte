@@ -64,9 +64,9 @@
 		<div class="mx-5 px-5">
 			<h1 class="text-3xl font-semibold">Search Jobs</h1>
 		</div>
-		<div class="px-5 py-3 bg-white rounded-3xl lg:rounded-full  my-5">
+		<div class="px-5 py-3 bg-white shadow-md rounded-3xl lg:rounded-full  my-5">
 			<form>
-				<div class="lg:flex justify-between items-center">
+				<div class="lg:flex justify-between  items-center">
 					<!-- First Search Bar -->
 					<div class=" w-full lg:border-r border-Gray">
 						<i class="fa fa-search"></i>
@@ -95,7 +95,7 @@
 					</div>
 					<!-- Submit Button -->
 					<div class="w-full sm:w-full flex-col flex sm:flex-row justify-end items-end">
-						<button type="submit" class=" w-full  md:w-auto border rounded-full bg-blue-600 text-white px-5 py-4">Find Jobs</button>
+						<button type="submit" class=" w-full shadow-md  md:w-auto border rounded-full bg-blue-600 text-white px-5 py-4">Find Jobs</button>
 					</div>
 				</div>
 			</form>
@@ -104,8 +104,8 @@
 </div>
 <section class="w-full p-5 flex justify-center items-center">
 	<div class="mt-5 container w-80vw ">
-		<div class="flex ">
-			<div class="m-2 w-3/12 ">
+		<div class="block lg:flex">
+			<div class="m-2 w-full lg:w-3/12">
 				<div>
 					<div class="flex block lg:hidden">
 						<div>Filter Jobs</div>
@@ -113,29 +113,29 @@
 							<span class="fa fa-sliders"></span>
 						</button>
 					</div>
-					<div class="bg-blue-100 mt-4 mt-lg-0 rounded py-4 px-3">
+					<div class="bg-blue-100 mt-4 mt-lg-0 rounded-3xl py-4 px-3">
 						<div class="mt-2 mt-lg-3">
-							<h4 class="text-2xl ml-2">Type of Employment</h4>
+							<h4 class="text-xl font-semibold ml-2">Type of Employment</h4>
 						</div>
-						<div class="mt-2 mt-lg-3">
+						<div class="mt-2 mt-lg-3 text-gray-500">
 							{#each $jobDataStore as Jobtype}
 								<div class="flex p-2 justify-between">
 									<span>
-										<input class=" h-4 w-4 border-2 border-white rounded" type="checkbox" />
+										<input class="h-4 w-4 rounded appearance-none bg-white accent-blue-500" type="checkbox" />
 										{Jobtype.value}
 									</span>
-									<span class="bg-white rounded-full p-1">0{Jobtype.count} </span>
+									<span class="bg-white rounded-2xl px-2 py-1">0{Jobtype.count} </span>
 								</div>
 							{/each}
 						</div>
 						<div class="mt-2 mt-lg-3">
-							<h4 class="text-2xl  ml-2">Experience Level</h4>
+							<h4 class="text-xl font-semibold  ml-2">Experience Level</h4>
 						</div>
-						<div class="mt-2 mt-lg-3">
+						<div class="mt-2 mt-lg-3 text-gray-500">
 							{#each $expLevel as experience}
 								<div class="flex p-2 justify-between">
 									<span>
-										<input class=" h-4 w-4 border-2 border-white rounded" type="checkbox" />
+										<input class="h-4 w-4 rounded appearance-none bg-white accent-blue-500" type="checkbox" />
 										{experience.value}
 									</span>
 									<span class="bg-white rounded-full p-1">0{experience.count} </span>
@@ -143,14 +143,14 @@
 							{/each}
 						</div>
 						<div class=" mt-2 mt-lg-3">
-							<h4 class="text-2xl  ml-2">Salary Range</h4>
+							<h4 class="text-xl font-semibold ml-2">Salary Range</h4>
 						</div>
-						<div class="mt-2 mt-lg-3">
+						<div class="mt-2 mt-lg-3 text-gray-500">
 							{#each $salaryRange as salary}
 								<div class="flex p-2 justify-between">
 									<label  for={`salary-${salary}`}>
 										<input
-											class=" h-4 w-4 border-2 border-whiter "
+											class=" h-4 w-4 appearance-none bg-white rounded-full"
 											type="radio"
 											name="salary"
 											id={`salary-${salary}`}
@@ -166,14 +166,14 @@
 			</div>
 
 			<!-- The job listing part -->
-			<div class="m-2 w-9/12">
+			<div class="m-2 w-full lg:w-9/12">
 				<div class=" mt-4 mt-lg-0">
 					<div class="flex flex-wrap justify-between ">
 						<div class="col-auto">
-							<h2 class="text-2xl">
-								Showing
+							<h2 class="text-2xl ">
+								<span class="text-gray-500">Showing</span>
 								<span class="text-bold">{$jobs.length}</span>
-								jobs
+								<span class="text-gray-500">jobs</span>
 						</div>
 						<div class="col-auto">
 							<select class="form-select">
@@ -185,8 +185,8 @@
 					</div>
 				</div>
 				{#each $jobs as job}
-					<div class="rounded-xl py-5 my-4 px-3 border">
-						<div class="flex items-center justify-between">
+					<div class="rounded-3xl py-5 my-4 px-3 border">
+						<div class=" lg:flex py-4 items-center justify-between">
 							<div class="">
 								<a href="a">
 									<img class="rounded-lg w-20" src={image} alt="" />
@@ -194,21 +194,21 @@
 							</div>
 							<div class="">
 								<a class=" mt-3 mt-sm-0" href="a">
-									<h5>{job.experience_level}</h5>
+									<h5 class="text-sm font-semibold">{job.experience_level}</h5>
 								</a>
-								<div class="flex justify-between">
+								<div class="flex justify-between text-sm">
 									<a  href="a">
 										<span class="fa fa-globe"></span>
 										<b>{job.organization_address}</b>
 									</a>
-									<div class="ml-1">
+									<div class="ml-1 text-sm">
 										{job.employment_type}
 									</div>
 								</div>
 							</div>
-							<div >
+							<div class="text-sm" >
 								<a  href="rfrf">
-									<div>
+									<div >
 										{#if job.categories && job.categories.length > 0}
 											{#each job.categories.slice(0, 6) as category, index (category.id)}
 												<div>{category.name}</div>
@@ -225,10 +225,10 @@
 									</a>
 								</div>
 							</div>
-							<div>
+							<div class="mt-4 lg:mt-0">
 								<a
 									href={`/jobdetail/${job.id}`}
-									class="border  rounded-full bg-blue-600  text-white px-4 py-2">Apply</a
+									class="rounded-full bg-blue-500 shadow-md text-white px-4 py-2  my-4">Apply</a
 								>
 							</div>
 						</div>
